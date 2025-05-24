@@ -1,29 +1,257 @@
----js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+title: Look Good Without the Guesswork
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Home"
+  order: 1
+---
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+<!-- Hero Section -->
+{# <section class="relative h-[70vh] bg-gray-200 overflow-hidden">
+  <picture>
+    <source srcset="/img/hero/test2.webp" type="image/webp">
+    <img src="/img/hero/hero.jpg" 
+        alt="Stylowa kobieta w modnej stylizacji" 
+        class="w-full h-full object-cover opacity-0 animate-fade-in" 
+        loading="lazy">
+  </picture>
 
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
+  <div class="absolute inset-0 flex flex-col items-start justify-center text-black px-4 max-w-xl">
+    <h1 class="text-4xl md:text-5xl text-left font-bold drop-shadow-lg opacity-0 animate-text-drop mb-2">
+      FIND YOUR STYLE
+    </h1>
 
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+    <p class="text-lg text-black opacity-0 animate-text-drop delay-100 mb-6">
+      Discover the latest trends and fashion tips
+    </p>
+
+  <div class="w-full mt-4">
+    <a href="/blog/"
+      class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md transition self-start mx-auto md:mx-0">
+      Learn more
+    </a>
+  </div>
+
+  </div>
+
+
+</section> #}
+
+
+<section class="relative h-[70vh] overflow-hidden">
+  <!-- Background image -->
+  <picture>
+    <source srcset="/img/hero/test2.webp" type="image/webp">
+    <img src="/img/hero/hero.jpg"
+         alt="Stylowa kobieta w modnej stylizacji"
+         class="w-full h-full object-cover md:object-contain object-right"
+         loading="lazy" />
+  </picture>
+
+  <!-- Overlay text -->
+  <div class="absolute inset-y-0 left-0 flex flex-col justify-center text-black px-6 md:px-12 max-w-lg space-y-4 bg-black/20 md:bg-transparent">
+    <h1 class="text-4xl md:text-5xl font-bold">
+      FIND YOUR STYLE
+    </h1>
+    <p class="text-lg">
+      Discover the latest trends and fashion tips
+    </p>
+    <a href="/blog/"
+       class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-xl transition self-start text-sm">
+      Learn more
+    </a>
+  </div>
+</section>
+
+
+
+
+<!-- ✅ About Section (Improved Layout) -->
+<section class="relative bg-[#f6f4ef] py-20">
+  
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-12">
+    
+    <!-- Left: Image -->
+    <div class="relative">
+      <picture>
+        <source srcset="/img/about/profile.webp" type="image/webp" />
+        <img 
+          src="/img/about/profile.webp" 
+          alt="Agnieszka Froncisz" 
+          class="rounded-2xl shadow-xl object-cover w-full h-auto max-h-[600px]" 
+          loading="lazy" />
+      </picture>
+    </div>
+
+    <!-- Right: Text -->
+    <div>
+      <h2 class="text-4xl font-extrabold mb-6 text-gray-800">
+        About This Blog
+      </h2>
+      <p class="text-gray-700 text-lg leading-relaxed">
+        I'm Agnieszka — a fashion lover curating simple but stunning everyday outfits so you don’t have to think twice. From high street to statement pieces, I try them on so you don't waste time or money. I believe fashion should be effortless, not exhausting.
+      </p>
+
+      <div class="mt-6">
+        <p class="text-green-700 font-semibold text-lg">Agnieszka Froncisz</p>
+        <p class="text-gray-500 text-sm">Content Creator</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Featured Articles -->
+<section class="bg-[#f6f4ef] py-20">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center mb-12 flex-col md:flex-row text-center md:text-left gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Featured Articles</h2>
+        <p class="text-gray-600 text-base">Curated picks to inspire your everyday style.</p>
+      </div>
+      <a href="/blog/" class="border border-green-800 text-green-800 px-6 py-2 rounded hover:bg-green-100 transition">
+        View All Articles
+      </a>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      {% set postslist = collections.posts | head(3) %}
+      {% for post in postslist %}
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg">
+          {% if post.data.image %}
+            <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-56 object-cover" />
+          {% else %}
+            <div class="w-full h-56 bg-gray-200 flex items-center justify-center text-gray-500 text-sm italic">No image</div>
+          {% endif %}
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ post.data.title }}</h3>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              {{ post.data.description | safe }}
+            </p>
+            <a href="{{ post.url }}" class="text-green-700 font-semibold hover:underline inline-flex items-center gap-1">
+              Read More <span class="text-lg">→</span>
+            </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4 md:px-6 relative">
+    <h2 class="text-2xl md:text-3xl font-bold text-dark mb-6">Shop the Latest Finds</h2>
+
+    <!-- Left arrow -->
+    <button id="scrollLeft"
+      class="hidden md:flex items-center justify-center absolute top-1/2 left-0 -translate-y-1/2 z-10 
+            w-10 h-10 bg-white/80 text-black rounded-full shadow-md 
+            opacity-70 hover:opacity-100 transition">
+      ◀
+    </button>
+
+    <!-- Right arrow -->
+    <button id="scrollRight"
+      class="hidden md:flex items-center justify-center absolute top-1/2 right-0 -translate-y-1/2 z-10 
+            w-10 h-10 bg-white/80 text-black rounded-full shadow-md 
+            opacity-70 hover:opacity-100 transition">
+      ▶
+    </button>
+
+
+    <!-- Scrollable product list -->
+    <div id="productSlider"
+         class="flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-4 scrollbar-hide scroll-smooth">
+      
+      <!-- Product card -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=1" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Floral</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+      <!-- Powiel kolejne produkty -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+            <!-- Powiel kolejne produkty -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+            <!-- Powiel kolejne produkty -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+            <!-- Powiel kolejne produkty -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+            <!-- Powiel kolejne produkty -->
+      <div class="flex-shrink-0 w-40 snap-start text-center">
+        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
+             class="w-full h-auto rounded-md mb-2 object-cover">
+        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
+        <p class="text-xs text-gray-500">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-100 py-12 px-4">
+  <div class="max-w-xl mx-auto text-center">
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">Subscribe to our Newsletter</h2>
+    <p class="text-sm text-gray-600 mb-6">Sign up to receive updates on new blog posts and exclusive offers</p>
+
+    <form action="https://your-newsletter-service.com/subscribe" method="POST" class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+      <input type="email" name="email" required
+             placeholder="Enter your email"
+             class="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black text-sm">
+      <button type="submit"
+              class="bg-black text-white px-6 py-2 rounded-lg text-sm hover:bg-gray-800 transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<script>
+  const slider = document.getElementById('productSlider');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+
+  scrollLeftBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -200, behavior: 'smooth' });
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: 200, behavior: 'smooth' });
+  });
+</script>
+
+

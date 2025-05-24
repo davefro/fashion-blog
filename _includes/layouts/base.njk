@@ -1,69 +1,124 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+  <head>
+  <!-- Meta ogólne -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta name="description" content="{{ description or metadata.description }}">
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
-		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
+  <!-- SEO -->
+  <link rel="canonical" href="{{ metadata.url }}">
+  <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
 
-		{#-
-		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. CSS:
-			* Add to a per-page bundle using `{% css %}{% endcss %}`
-			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		2. Or for JavaScript:
-			* Add to a per-page bundle using `{% js %}{% endjs %}`
-			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
-		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title or metadata.title }}">
+  <meta property="og:description" content="{{ description or metadata.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ metadata.url }}">
+  <meta property="og:image" content="{{ metadata.image or '/img/default-og.jpg' }}">
 
-		{#- Add an arbitrary string to the bundle #}
-		<style>/* This is an arbitrary CSS string added to the bundle */</style>
-		{#- Add the contents of a file to the bundle #}
-		<style>{% include "css/index.css" %}</style>
-		{#- Or you can add from node_modules #}
-		{# <style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style> #}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or metadata.title }}">
+  <meta name="twitter:description" content="{{ description or metadata.description }}">
+  <meta name="twitter:image" content="{{ metadata.image or '/img/default-og.jpg' }}">
 
-		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
-		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
-		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poiret+One&family=Pompiere&display=swap" rel="stylesheet">
 
-		{#- Add the heading-anchors web component to the JavaScript bundle #}
-		<script type="module">{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
-	</head>
-	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>{% include "css/index.css" %}</style>
 
-		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-				</ul>
-			</nav>
-		</header>
+  </head>
 
-		<main id="skip">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
-		</main>
 
-		<footer>
-			<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
-		</footer>
 
-		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
-	</body>
+    <body class="bg-lightest text-dark font-sans">
+
+    <!-- ✅ Header & Navigation -->
+    <header class="bg-lightest py-4 border-b">
+      <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+        <a href="/" class="text-black text-2xl font-bold">Fashion Blog</a>
+
+        <!-- Hamburger / Close Icon -->
+        <button id="menu-toggle" class="block md:hidden focus:outline-none z-50 relative">
+          <!-- Hamburger Icon -->
+          <svg id="icon-hamburger" class="w-8 h-8 text-black transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <!-- Close Icon -->
+          <svg id="icon-close" class="w-8 h-8 text-black hidden transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="/" class="hover:text-dark">Home</a>
+          <a href="/blog/" class="hover:text-dark">Blog</a>
+          <a href="/about/" class="hover:text-dark">About</a>
+          <a href="/contact/" class="hover:text-dark">Contact</a>
+        </nav>
+      </div>
+      <!-- Slide-in Menu (Mobile) -->
+      <div id="slide-menu" class="fixed top-0 right-0 w-64 h-full bg-light shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <nav class="flex flex-col space-y-6 mt-16 px-6">
+          <a href="/" class="hover:text-primary">Home</a>
+          <a href="/blog/" class="hover:text-primary">Blog</a>
+          <a href="/about/" class="hover:text-primary">About</a>
+          <a href="/contact/" class="hover:text-primary">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8">
+      {{ content | safe }}
+    </main>
+
+    <footer class="bg-secondary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+        <div>
+          <p>&copy; {{ year }} Agnieszka Froncisz. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="/about/" class="hover:text-accent transition">About</a>
+          <a href="/blog/" class="hover:text-accent transition">Blog</a>
+          <a href="/contact/" class="hover:text-accent transition">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+    <!-- JS bundle -->
+    <script type="module" src="{% getBundleFileUrl "js" %}"></script>
+    {# Heading anchor JS #}
+    <script type="module" defer>{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
+
+    <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const slideMenu = document.getElementById('slide-menu');
+      const iconHamburger = document.getElementById('icon-hamburger');
+      const iconClose = document.getElementById('icon-close');
+
+      menuToggle.addEventListener('click', () => {
+        slideMenu.classList.toggle('translate-x-full');
+
+        // Toggle icons
+        iconHamburger.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+    </script>
+
+
+
+  </body>
 </html>
