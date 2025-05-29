@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
   <head>
-  <!-- Meta ogólne -->
+  <!-- Meta  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or metadata.title }}</title>
@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poiret+One&family=Pompiere&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/tailwind.css">
@@ -40,21 +41,24 @@
 
 
 
-    <body class="bg-lightest text-dark font-sans">
+    {# <body class="bg-lightest text-dark font-sans"> #}
+    <body class="bg-lightest text-gray-900 dark:bg-gray-900 dark:text-white">
+
 
     <!-- ✅ Header & Navigation -->
-    <header class="bg-lightest py-4 border-b">
+    <header class="bg-lightest dark:bg-gray-800 text-black dark:text-white py-4 border-b dark:border-gray-700">
+
       <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        <a href="/" class="text-black text-2xl font-bold">Fashion Blog</a>
+        <a href="/" class="text-gray-800 dark:text-white text-2xl font-bold transition-colors duration-300">Fashion Blog</a>
 
         <!-- Hamburger / Close Icon -->
         <button id="menu-toggle" class="block md:hidden focus:outline-none z-50 relative">
           <!-- Hamburger Icon -->
-          <svg id="icon-hamburger" class="w-8 h-8 text-black transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg id="icon-hamburger" class="w-8 h-8 text-black dark:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
           <!-- Close Icon -->
-          <svg id="icon-close" class="w-8 h-8 text-black hidden transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg id="icon-close" class="w-8 h-8 text-black dark:text-white hidden transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -64,15 +68,53 @@
           <a href="/blog/" class="hover:text-dark">Blog</a>
           <a href="/about/" class="hover:text-dark">About</a>
           <a href="/contact/" class="hover:text-dark">Contact</a>
+
+           
+        <label class="relative inline-flex items-center cursor-pointer scale-90">
+          <input type="checkbox" id="themeToggle" class="sr-only peer">
+          <div class="w-10 h-5 bg-gray-300 dark:bg-gray-700 rounded-full peer peer-checked:bg-indigo-500 transition-colors duration-300 ease-in-out"></div>
+          <div class="absolute right-0.5 left-0.5 w-4 h-4 bg-white dark:bg-gray-300 rounded-full shadow-md transform peer-checked:translate-x-5 transition-transform duration-300 ease-in-out"></div>
+
+                    <!-- ☀️ Sun Icon (Left) -->
+          <svg class="absolute right-0.5 left-0.5  w-4 h-4 pointer-events-none z-10"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+          </svg>
+
+          <!-- 🌙 Moon Icon (Right) -->
+          <svg class="absolute right-0.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-700 dark:text-white pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+          </svg>
+        </label>
+
         </nav>
       </div>
       <!-- Slide-in Menu (Mobile) -->
-      <div id="slide-menu" class="fixed top-0 right-0 w-64 h-full bg-light shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+      <div id="slide-menu" class="fixed top-0 right-0 w-64 h-full bg-light shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40 dark:bg-gray-900">
         <nav class="flex flex-col space-y-6 mt-16 px-6">
           <a href="/" class="hover:text-primary">Home</a>
           <a href="/blog/" class="hover:text-primary">Blog</a>
           <a href="/about/" class="hover:text-primary">About</a>
           <a href="/contact/" class="hover:text-primary">Contact</a>
+
+          <!-- 💡 Mobile Dark Mode Toggle -->
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-700 dark:text-gray-200">Dark mode</span>
+            <label class="relative inline-flex items-center cursor-pointer scale-90">
+              <input type="checkbox" id="themeToggleMobile" class="sr-only peer">
+              <div class="w-10 h-5 bg-gray-300 dark:bg-gray-700 rounded-full peer peer-checked:bg-indigo-500 transition-colors duration-300 ease-in-out"></div>
+              <div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white dark:bg-gray-300 rounded-full shadow-md transform peer-checked:translate-x-5 transition-transform duration-300 ease-in-out"></div>
+              <!-- ☀️ -->
+              <svg class="absolute right-0.5 left-0.5  w-4 h-4 pointer-events-none z-10"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+              </svg>
+              <!-- 🌙 -->
+              <svg class="absolute right-0.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-700 dark:text-white pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+              </svg>
+            </label>
+          </div>
         </nav>
       </div>
     </header>
@@ -82,26 +124,62 @@
       {{ content | safe }}
     </main>
 
-    <footer class="bg-secondary text-white py-6 mt-8">
-      <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
-        <div>
-          <p>&copy; {{ year }} Agnieszka Froncisz. All rights reserved.</p>
+    <footer class="bg-lightest dark:bg-gray-950 text-gray-800 dark:text-gray-300 dark:border-gray-700 py-8">
+
+
+
+  
+  
+      <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0">
+        
+        <!-- Links -->
+        <div class="flex flex-wrap gap-6 justify-center md:justify-start">
+          <a href="/about/" class="hover:text-black transition">About</a>
+          <a href="/blog/" class="hover:text-black transition">Discover</a>
+          <a href="/contact/" class="hover:text-black transition">Explore</a>
+          <a href="/shop/" class="hover:text-black transition">Shop</a>
         </div>
-        <div class="flex space-x-6">
-          <a href="/about/" class="hover:text-accent transition">About</a>
-          <a href="/blog/" class="hover:text-accent transition">Blog</a>
-          <a href="/contact/" class="hover:text-accent transition">Contact</a>
+
+        <!-- Social -->
+        <div class="flex gap-4 justify-center md:justify-end">
+          <a href="#" aria-label="Instagram" class="hover:text-black">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 8a4 4 0 100 8 4 4 0 000-8zm0 2c1.12 0 2 .88 2 2s-.88 2-2 2-2-.88-2-2 .88-2 2-2zm4.5-.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest" class="hover:text-black">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.04 2.002c-5.494 0-9.917 4.423-9.917 9.917 0 4.198 2.61 7.785 6.287 9.173-.087-.779-.165-1.973.034-2.823.18-.769 1.155-4.897 1.155-4.897s-.294-.589-.294-1.459c0-1.367.793-2.389 1.782-2.389.84 0 1.245.63 1.245 1.385 0 .843-.537 2.105-.814 3.275-.231.976.487 1.773 1.445 1.773 1.734 0 3.06-1.83 3.06-4.472 0-2.336-1.681-3.968-4.081-3.968-2.778 0-4.41 2.084-4.41 4.236 0 .84.323 1.743.727 2.231.08.096.092.18.07.277-.076.316-.246.976-.28 1.113-.044.18-.144.218-.332.131-1.234-.574-2.005-2.378-2.005-3.832 0-3.118 2.263-5.978 6.537-5.978 3.431 0 6.1 2.444 6.1 5.716 0 3.41-2.149 6.157-5.133 6.157-1.002 0-1.943-.52-2.265-1.137l-.615 2.339c-.222.843-.826 1.899-1.233 2.543.927.287 1.908.442 2.928.442 5.495 0 9.917-4.423 9.917-9.917s-4.422-9.917-9.917-9.917z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 py-4">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 text-gray-500 text-xs">
+          
+          <!-- Left -->
+          <div>
+            <p>&copy; {{ year }} Agnieszka Froncisz. All rights reserved.</p>
+          </div>
+
+          <!-- Center -->
+          <div class="text-black font-semibold text-sm tracking-wide">
+            Fashion Blog
+          </div>
+
+          <!-- Right -->
+          <div class="flex gap-4">
+            <a href="/cookie-policy/" class="hover:text-black">Cookie Policy</a>
+            <a href="/privacy-policy/" class="hover:text-black">Privacy Policy</a>
+          </div>
+
         </div>
       </div>
     </footer>
-
-
 
 
     <!-- JS bundle -->
     <script type="module" src="{% getBundleFileUrl "js" %}"></script>
     {# Heading anchor JS #}
     <script type="module" defer>{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 
     <script>
       const menuToggle = document.getElementById('menu-toggle');
@@ -116,6 +194,76 @@
         iconHamburger.classList.toggle('hidden');
         iconClose.classList.toggle('hidden');
       });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('themeToggle');
+        const toggleMobile = document.getElementById('themeToggleMobile');
+        const root = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+
+        root.classList.toggle('dark', isDark);
+        if (toggle) toggle.checked = isDark;
+        if (toggleMobile) toggleMobile.checked = isDark;
+
+        function handleThemeChange(checked) {
+          root.classList.toggle('dark', checked);
+          localStorage.setItem('theme', checked ? 'dark' : 'light');
+          if (toggle) toggle.checked = checked;
+          if (toggleMobile) toggleMobile.checked = checked;
+        }
+
+        if (toggle) {
+          toggle.addEventListener('change', () => handleThemeChange(toggle.checked));
+        }
+        if (toggleMobile) {
+          toggleMobile.addEventListener('change', () => handleThemeChange(toggleMobile.checked));
+        }
+      });
+
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#000",
+              text: "#fff"
+            },
+            button: {
+              background: "#f1d600",
+              text: "#000"
+            }
+          },
+          theme: "classic",
+          position: "bottom", 
+          type: "opt-in",     
+          revokable: false,
+          dismissOnScroll: false,
+          dismissOnTimeout: false,
+          content: {
+            message: "We use cookies to enhance your browsing experience and analyze our traffic.",
+            dismiss: "Reject",
+            allow: "Accept",
+            link: "Learn more",
+            href: "/cookie-policy"
+          },
+          onInitialise: function (status) {
+            if (this.hasConsented()) {
+              // 👉 Load your Google Analytics or other scripts here
+            }
+          },
+          onStatusChange: function (status, chosenBefore) {
+            if (this.hasConsented()) {
+              // 👉 Load your scripts if accepted
+            } else {
+              // 👉 Optional: Disable tracking cookies if rejected
+            }
+          }
+        });
+      });
+
     </script>
 
 

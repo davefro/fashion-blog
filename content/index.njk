@@ -6,95 +6,77 @@ eleventyNavigation:
   order: 1
 ---
 
-<!-- Hero Section -->
-{# <section class="relative h-[70vh] bg-gray-200 overflow-hidden">
-  <picture>
-    <source srcset="/img/hero/test2.webp" type="image/webp">
-    <img src="/img/hero/hero.jpg" 
-        alt="Stylowa kobieta w modnej stylizacji" 
-        class="w-full h-full object-cover opacity-0 animate-fade-in" 
-        loading="lazy">
-  </picture>
-
-  <div class="absolute inset-0 flex flex-col items-start justify-center text-black px-4 max-w-xl">
-    <h1 class="text-4xl md:text-5xl text-left font-bold drop-shadow-lg opacity-0 animate-text-drop mb-2">
-      FIND YOUR STYLE
-    </h1>
-
-    <p class="text-lg text-black opacity-0 animate-text-drop delay-100 mb-6">
-      Discover the latest trends and fashion tips
-    </p>
-
-  <div class="w-full mt-4">
-    <a href="/blog/"
-      class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md transition self-start mx-auto md:mx-0">
-      Learn more
-    </a>
-  </div>
-
-  </div>
 
 
-</section> #}
+<section class="relative w-full min-h-[400px] lg:h-[70vh] max-h-[800px] overflow-hidden">
 
 
-<section class="relative h-[70vh] overflow-hidden">
   <!-- Background image -->
   <picture>
     <source srcset="/img/hero/test2.webp" type="image/webp">
     <img src="/img/hero/hero.jpg"
          alt="Stylowa kobieta w modnej stylizacji"
-         class="w-full h-full object-cover md:object-contain object-right"
+         class="absolute inset-0 w-full h-full object-cover md:object-contain object-right dark:brightness-75 dark:contrast-125"
          loading="lazy" />
   </picture>
 
-  <!-- Overlay text -->
-  <div class="absolute inset-y-0 left-0 flex flex-col justify-center text-black px-6 md:px-12 max-w-lg space-y-4 bg-black/20 md:bg-transparent">
-    <h1 class="text-4xl md:text-5xl font-bold">
-      FIND YOUR STYLE
-    </h1>
-    <p class="text-lg">
-      Discover the latest trends and fashion tips
-    </p>
-    <a href="/blog/"
-       class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-xl transition self-start text-sm">
-      Learn more
-    </a>
+
+    <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/30 md:bg-transparent flex items-center justify-start px-6 md:px-12">
+    <div class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out max-w-lg flex flex-col space-y-4">
+      
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 transition-colors duration-300 dark:text-white">
+        FIND YOUR STYLE
+      </h1>
+      
+      <p class="text-lg text-gray-800 transition-colors duration-300 dark:text-white">
+        Discover the latest trends and fashion tips
+      </p>
+      
+      <a href="/blog/"
+        class="w-fit self-start bg-gray-800 text-white hover:bg-gray-800 
+              dark:bg-white dark:text-black dark:hover:bg-gray-200 
+              px-6 py-3 rounded-xl transition-colors duration-300 text-sm font-semibold">
+        Learn more
+      </a>
+
+    </div>
   </div>
+
 </section>
 
 
 
 
 <!-- ✅ About Section (Improved Layout) -->
-<section class="relative bg-[#f6f4ef] py-20">
+<section class="relative bg-[#f6f4ef] dark:bg-gray-900 py-20 transition-colors duration-300">
   
   <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center gap-12">
     
     <!-- Left: Image -->
-    <div class="relative">
+    <div class="relative scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
       <picture>
         <source srcset="/img/about/profile.webp" type="image/webp" />
         <img 
           src="/img/about/profile.webp" 
           alt="Agnieszka Froncisz" 
-          class="rounded-2xl shadow-xl object-cover w-full h-auto max-h-[600px]" 
+          class="rounded-2xl shadow-xl object-cover w-full h-auto max-h-[600px] dark:brightness-90 dark:contrast-110 transition-all duration-300" 
           loading="lazy" />
       </picture>
     </div>
 
     <!-- Right: Text -->
-    <div>
-      <h2 class="text-4xl font-extrabold mb-6 text-gray-800">
+    <div class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 delay-300">
+      <h2 class="text-4xl font-extrabold mb-6 text-gray-800 dark:text-white transition-colors duration-300">
         About This Blog
       </h2>
-      <p class="text-gray-700 text-lg leading-relaxed">
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed transition-colors duration-300">
         I'm Agnieszka — a fashion lover curating simple but stunning everyday outfits so you don’t have to think twice. From high street to statement pieces, I try them on so you don't waste time or money. I believe fashion should be effortless, not exhausting.
       </p>
 
       <div class="mt-6">
-        <p class="text-green-700 font-semibold text-lg">Agnieszka Froncisz</p>
-        <p class="text-gray-500 text-sm">Content Creator</p>
+        <p class="text-green-700 dark:text-green-400 font-semibold text-lg transition-colors duration-300">Agnieszka Froncisz</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">Content Creator</p>
       </div>
     </div>
 
@@ -102,35 +84,58 @@ eleventyNavigation:
 </section>
 
 
+
 <!-- Featured Articles -->
-<section class="bg-[#f6f4ef] py-20">
+<section class="bg-[#f6f4ef] dark:bg-gray-900 py-20 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="flex justify-between items-center mb-12 flex-col md:flex-row text-center md:text-left gap-4">
+
+    
+    <div class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex justify-between items-center mb-12 flex-col md:flex-row text-center md:text-left gap-4">
       <div>
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Featured Articles</h2>
-        <p class="text-gray-600 text-base">Curated picks to inspire your everyday style.</p>
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-2 transition-colors duration-300">
+          Featured Articles
+        </h2>
+        <p class="text-gray-600 dark:text-gray-300 text-base transition-colors duration-300">
+          Curated picks to inspire your everyday style.
+        </p>
       </div>
-      <a href="/blog/" class="border border-green-800 text-green-800 px-6 py-2 rounded hover:bg-green-100 transition">
+
+      <!-- Button -->
+      <a href="/blog/"
+         class="border border-green-800 dark:border-green-400 text-green-800 dark:text-green-400 
+                px-6 py-2 rounded hover:bg-green-100 dark:hover:bg-green-900 transition-colors duration-300">
         View All Articles
       </a>
     </div>
 
+    <!-- Featured Articles -->
     <div class="grid gap-8 md:grid-cols-3">
       {% set postslist = collections.posts | head(3) %}
+      
+
       {% for post in postslist %}
-        <article class="bg-white rounded-xl overflow-hidden shadow-lg">
+        <article class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700
+            {% if loop.index0 == 0 %} delay-100
+            {% elif loop.index0 == 1 %} delay-200
+            {% elif loop.index0 == 2 %} delay-300
+            {% endif %} bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl  dark:hover:shadow-gray-900 transform hover:-translate-y-1 transition-all duration-300 hover:rotate-[0.5deg]">
           {% if post.data.image %}
-            <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-56 object-cover" />
+            <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-56 object-cover dark:brightness-90 dark:contrast-110 transition duration-300" />
           {% else %}
-            <div class="w-full h-56 bg-gray-200 flex items-center justify-center text-gray-500 text-sm italic">No image</div>
+            <div class="w-full h-56 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-300 text-sm italic">
+              No image
+            </div>
           {% endif %}
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ post.data.title }}</h3>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-colors duration-300">
+              {{ post.data.title }}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed transition-colors duration-300">
               {{ post.data.description | safe }}
             </p>
-            <a href="{{ post.url }}" class="text-green-700 font-semibold hover:underline inline-flex items-center gap-1">
-              Read More <span class="text-lg">→</span>
+            <a href="{{ post.url }}" class="text-green-700 dark:text-green-400 font-semibold hover:underline inline-flex items-center gap-1 group transition-all duration-300">
+              Read More 
+              <span class="text-lg transform transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
           </div>
         </article>
@@ -139,105 +144,184 @@ eleventyNavigation:
   </div>
 </section>
 
-<section class="bg-white py-16">
-  <div class="container mx-auto px-4 md:px-6 relative">
-    <h2 class="text-2xl md:text-3xl font-bold text-dark mb-6">Shop the Latest Finds</h2>
 
-    <!-- Left arrow -->
+<section class="bg-white dark:bg-gray-900 py-16 transition-colors duration-300">
+  <div class="container mx-auto px-4 md:px-6 relative">
+
+
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-6 transition-colors duration-300">
+      Shop the Latest Finds
+    </h2>
+
+    <p class="text-sm text-gray-500 dark:text-gray-400 md:hidden mb-4 text-center">
+      Swipe to browse →
+    </p>
+
     <button id="scrollLeft"
       class="hidden md:flex items-center justify-center absolute top-1/2 left-0 -translate-y-1/2 z-10 
-            w-10 h-10 bg-white/80 text-black rounded-full shadow-md 
-            opacity-70 hover:opacity-100 transition">
+            w-10 h-10 bg-white/80 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-md 
+            opacity-70 hover:opacity-100 transition-colors duration-300">
       ◀
     </button>
 
-    <!-- Right arrow -->
     <button id="scrollRight"
       class="hidden md:flex items-center justify-center absolute top-1/2 right-0 -translate-y-1/2 z-10 
-            w-10 h-10 bg-white/80 text-black rounded-full shadow-md 
-            opacity-70 hover:opacity-100 transition">
+            w-10 h-10 bg-white/80 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-md 
+            opacity-70 hover:opacity-100 transition-colors duration-300">
       ▶
     </button>
-
-
+  
     <!-- Scrollable product list -->
     <div id="productSlider"
-         class="flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-4 scrollbar-hide scroll-smooth">
+         class="flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-4 scrollbar-hide scroll-smooth touch-auto">
       
       <!-- Product card -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
         <img src="https://picsum.photos/200/250?random=1" alt="Floral"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Floral</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 mb-4 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
-      <!-- Powiel kolejne produkty -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
-        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=2" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
-            <!-- Powiel kolejne produkty -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
-        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=3" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
-            <!-- Powiel kolejne produkty -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
-        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=4" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
-            <!-- Powiel kolejne produkty -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
-        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=5" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
-            <!-- Powiel kolejne produkty -->
-      <div class="flex-shrink-0 w-40 snap-start text-center">
-        <img src="https://picsum.photos/200/250?random=2" alt="Blazer"
-             class="w-full h-auto rounded-md mb-2 object-cover">
-        <h3 class="text-sm font-medium text-gray-900">Blazer</h3>
-        <p class="text-xs text-gray-500">SHEIN</p>
-        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 hover:bg-gray-200 transition">Buy Now</button>
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=6" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
+      </div>
+
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=7" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
+      </div>
+
+      <div class="flex-shrink-0 w-40 snap-start text-center bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300">
+        <img src="https://picsum.photos/200/250?random=8" alt="Floral"
+             class="w-full h-auto rounded-md mb-2 object-cover dark:brightness-90 dark:contrast-110 transition duration-300">
+        <h3 class="text-sm font-medium text-gray-900 dark:text-white">Floral</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-300">SHEIN</p>
+        <button class="mt-2 px-4 py-1.5 text-sm rounded-full bg-gray-100 dark:bg-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+          Buy Now
+        </button>
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="bg-gray-100 py-12 px-4">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="text-2xl font-bold text-gray-900 mb-2">Subscribe to our Newsletter</h2>
-    <p class="text-sm text-gray-600 mb-6">Sign up to receive updates on new blog posts and exclusive offers</p>
 
-    <form action="https://your-newsletter-service.com/subscribe" method="POST" class="flex flex-col sm:flex-row gap-4 items-center justify-center">
-      <input type="email" name="email" required
-             placeholder="Enter your email"
-             class="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black text-sm">
-      <button type="submit"
-              class="bg-black text-white px-6 py-2 rounded-lg text-sm hover:bg-gray-800 transition">
-        Subscribe
-      </button>
-    </form>
+<section class="bg-[#f9f9f9] dark:bg-gray-900 py-16 transition-colors duration-300">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-0 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-colors duration-300">
+    
+    <!-- Left: Image -->
+    <picture class="h-full">
+      <source srcset="/img/newsletter/test3.webp" type="image/webp">
+      <img src="/img/newsletter/test3.jpg"
+           alt="Newsletter teaser"
+           class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 delay-300 w-full h-full object-cover dark:brightness-90 dark:contrast-110 transition duration-300"
+           loading="lazy" />
+    </picture>
+
+    <!-- Right: Form -->
+    <div class="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 delay-300 p-8 md:p-12 flex flex-col justify-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 text-center transition-colors duration-300">
+        Sign Up for Our Newsletter
+      </h2>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 transition-colors duration-300">
+        Get fashion tips, latest trends & exclusive offers — straight to your inbox.
+      </p>
+
+      <form id="newsletterForm"
+            action="https://example.com/newsletter" method="POST"
+            class="space-y-4">
+
+        <!-- Name -->
+        <input type="text" name="name" id="nameInput" placeholder="Your name"
+               class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-sm transition-all duration-300">
+
+        <!-- Email -->
+        <input type="email" name="email" id="emailInput" required placeholder="Your email address"
+               class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-sm transition-all duration-300">
+
+        <!-- Consent Checkbox -->
+        <label class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+          <input type="checkbox" required name="consent" class="mt-1" />
+          <span>
+            I agree to the 
+            <a href="/privacy-policy" class="underline hover:text-indigo-600">Privacy Policy</a> and 
+            <a href="/cookie-policy" class="underline hover:text-indigo-600">Cookie Policy</a>.
+          </span>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit" id="submitBtn"
+                class="w-full bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-md text-sm hover:bg-gray-800 dark:hover:bg-gray-200 transition flex items-center justify-center disabled:opacity-50">
+          <span id="btnText">Subscribe</span>
+          <svg id="loader" class="animate-spin ml-2 h-4 w-4 hidden text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+        </button>
+
+        <!-- Message -->
+        <p id="formMessage" class="text-sm font-medium mt-2 text-gray-700 dark:text-gray-300"></p>
+      </form>
+    </div>
   </div>
 </section>
+
+
 
 
 <script>
@@ -252,6 +336,80 @@ eleventyNavigation:
   scrollRightBtn.addEventListener('click', () => {
     slider.scrollBy({ left: 200, behavior: 'smooth' });
   });
+
+  const form = document.getElementById("newsletterForm");
+  const nameInput = document.getElementById("nameInput");
+  const emailInput = document.getElementById("emailInput");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = document.getElementById("btnText");
+  const loader = document.getElementById("loader");
+  const message = document.getElementById("formMessage");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!emailValid) {
+      message.textContent = "Please enter a valid email address.";
+      message.className = "mt-2 text-sm font-medium text-red-600";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    loader.classList.remove("hidden");
+    message.textContent = "";
+
+    // Simulate form submission
+    setTimeout(() => {
+      loader.classList.add("hidden");
+      submitBtn.disabled = false;
+      form.reset();
+      message.textContent = `Thanks${name ? ', ' + name : ''}! You're now subscribed.`;
+      message.className = "mt-2 text-sm font-medium text-green-600";
+    }, 2000);
+  });
+
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('productSlider');
+    if (!slider) return;
+
+    let scrollStep = 240; 
+    let interval = 3000; 
+    
+    let autoScroll = setInterval(() => {
+      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+
+        slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      }
+    }, interval);
+
+
+    slider.addEventListener('touchstart', () => {
+      clearInterval(autoScroll);
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("opacity-100", "translate-y-0");
+        entry.target.classList.remove("opacity-0", "translate-y-8");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".scroll-reveal").forEach(el => observer.observe(el));
+});
+
+
 </script>
 
 
