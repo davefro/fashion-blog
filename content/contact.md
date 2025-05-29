@@ -12,7 +12,7 @@ permalink: /contact/
 
 <section class="max-w-xl mx-auto px-4 py-12">
   <h2 class="text-2xl font-semibold mb-6">Contact Me</h2>
-  <form name="contact" method="POST" data-netlify="true" class="space-y-4">
+  <form name="contact" method="POST" data-netlify="true" action="/success" class="space-y-4">
     <input type="hidden" name="form-name" value="contact" />
     <div>
       <label for="name" class="block font-medium mb-1">Name</label>
